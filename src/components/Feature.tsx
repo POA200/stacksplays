@@ -6,7 +6,7 @@ const Feature = () => {
       <div className="container">
         <h2 className="text-3xl font-bold lg:text-6xl text-chart-5 text-center mb-16">How it Works</h2>
         <div className="mt-10 grid gap-10 lg:mt-20 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-9xl">
-          <div className="m-4 rounded-lg border-1 p-5 hover:scale-105 transition-transform duration-300">
+          <div className="ml-6 mr-6 rounded-lg border-1 p-5 hover:scale-105 transition-transform duration-300">
             <span className="mb-4 flex size-12 items-center justify-center rounded-full bg-sidebar mx-auto">
               <Wallet className="size-6 text-primary" />
             </span>
@@ -15,7 +15,7 @@ const Feature = () => {
               Link your crypto wallet to get started. We support all major STX wallets for a seamless connection.
             </p>
           </div>
-          <div className="m-4 rounded-lg border-1 p-5 hover:scale-105 transition-transform duration-300">
+          <div className="ml-6 mr-6 rounded-lg border-1 p-5 hover:scale-105 transition-transform duration-300">
             <span className="mb-4 flex size-12 items-center justify-center rounded-full bg-sidebar mx-auto">
               <Zap className="size-6 text-primary" />
             </span>
@@ -24,7 +24,7 @@ const Feature = () => {
               Mint your unique NFTs in just a few clicks. To have full access to our Platform
             </p>
           </div>
-          <div className="m-4 rounded-lg border-1 p-5 hover:scale-105 transition-transform duration-300">
+          <div className="ml-6 mr-6 rounded-lg border-1 p-5 hover:scale-105 transition-transform duration-300">
             <span className="mb-4 flex size-12 items-center justify-center rounded-full bg-sidebar mx-auto">
               <Gamepad className="size-6 text-primary" />
             </span>
@@ -33,7 +33,7 @@ const Feature = () => {
               Jump into the game with your newly minted NFTs. Experience GAMEFI on STX like never before.
             </p>
           </div>
-          <div className="m-4 rounded-lg border-1 p-5 hover:scale-105 transition-transform duration-300">
+          <div className="ml-6 mr-6 rounded-lg border-1 p-5 hover:scale-105 transition-transform duration-300">
             <span className="mb-4 flex size-12 items-center justify-center rounded-full bg-sidebar mx-auto">
               <Trophy className="size-6 text-primary" />
             </span>
