@@ -1,7 +1,7 @@
 
 const Stats = () => {
   return (
-    <section className="py-16 mr-14 ml-14">
+    <section className="py-16 mr-10 ml-10">
       {/* Center the stats container */}
       <div className="max-w-4xl mx-auto text-center">
         {/* Stats box */}
