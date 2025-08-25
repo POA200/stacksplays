@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Wallet } from "lucide-react";
 import ModeToggle from "@/components/mode-toggle"
+import headerLogo from "/public/HeaderLogo.svg";
 
 export const Header = () => {
 
@@ -9,7 +10,7 @@ export const Header = () => {
     <header className="w-full z-40 fixed top-0 left-0 bg-background/20 backdrop-blur-sm mt-8">
       <div className="container relative mx-auto min-h-20 flex gap-4 flex-row lg:grid lg:grid-cols-3 items-center">
         <div className="flex lg:justify-left gap-2">
-          <img src="public/StacksPlays-Logo.svg" className="w-6" />
+          <img src={headerLogo} className="w-6" />
           <p className="font-bold text-primary">StacksPlays</p>
         </div>
 

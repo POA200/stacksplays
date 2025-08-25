@@ -1,6 +1,7 @@
 import { MoveRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import heroImage from "/public/HeroImage.svg";
 
 export const Hero = () => (
   <div className="w-full  py-20 lg:py-40">
@@ -28,7 +29,7 @@ export const Hero = () => (
           </div>
         </div>
         <div>
-          <img src="public/StacksPlays-Logo2.svg" alt="hero image" />
+          <img src={heroImage} alt="hero image" />
         </div>
       </div>
     </div>
