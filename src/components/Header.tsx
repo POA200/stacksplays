@@ -18,7 +18,7 @@ export const Header = () => {
 
   return (
     <>
-      <header className="w-full z-40 fixed top-0 left-0 bg-background/20 backdrop-blur-sm">
+      <header className="pl-8 pr-8 w-full z-40 fixed top-0 left-0 bg-background/20 backdrop-blur-sm">
         {/* Keep 3 columns so the logo stays centered */}
         <div className="container mx-auto min-h-20 grid grid-cols-3 items-center gap-4">
           {/* LEFT: hamburger on mobile, inline nav on desktop */}

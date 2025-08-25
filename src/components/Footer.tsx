@@ -1,0 +1,24 @@
+import { Button } from "@/components/ui/button";
+
+const Footer = () => {
+  return (
+    <footer className="p-12 bg-dark py-12 text-center text-white">
+      {/* Blue box with text and button */}
+      <div className="bg-primary p-6 rounded-lg max-w-3xl mx-auto m-12">
+        <p className="text-lg mb-4">
+          Join the Fun and Be the First to Hear About Our Tournaments and Exciting Updates!
+        </p>
+        <Button className="bg-chart-5">
+          Join Community
+        </Button>
+      </div>
+
+      {/* Copyright */}
+      <p className="mt-18 text-md text-foreground">
+        © StacksPlays, All Rights Reserved
+      </p>
+    </footer>
+  );
+};
+
+export default Footer
