@@ -51,7 +51,7 @@ export const Header = () => {
           {/* RIGHT: actions */}
           <div className="flex justify-end items-center gap-4">
             <Button>
-              <Wallet className="w-4 h-4 mr-2" />
+              <Wallet className="w-4 h-4 mr-0" />
               Connect Wallet
             </Button>
             <div className="hidden lg:block">
