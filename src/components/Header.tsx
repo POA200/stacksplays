@@ -43,18 +43,18 @@ export const Header = () => {
           </div>
 
           {/* CENTER: logo stays centered */}
-          <div className="flex justify-center items-center">
+          <div className="flex justify-left items-center">
             <img src={headerLogo} className="w-6 mr-2" alt="StacksPlays logo" />
             <p className="font-bold text-primary">StacksPlays</p>
           </div>
 
           {/* RIGHT: actions */}
           <div className="flex justify-end items-center gap-4">
-            <Button>
+            <Button className=" cursor-pointer">
               <Wallet className="w-4 h-4 mr-0" />
               Connect Wallet
             </Button>
-            <div className="hidden lg:block">
+            <div className="hidden lg:block cursor-pointer">
               <ModeToggle />
             </div>
           </div>

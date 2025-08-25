@@ -10,7 +10,7 @@ const Footer = () => {
           Join the Fun and Be the First to Hear About Our Tournaments and Exciting Updates!
         </p>
         <a href="x.com/stacksplays_" target="_blank" >
-          <Button className="bg-chart-5"> <Users className="h-5 w-5" />
+          <Button className="bg-chart-5 cursor-pointer"> <Users className="h-5 w-5" />
             Join Community
           </Button>
         </a>

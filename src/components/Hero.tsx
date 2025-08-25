@@ -22,8 +22,8 @@ export const Hero = () => (
 
           {/* Buttons */}
           <div className="flex flex-row flex-wrap justify-center gap-4 lg:justify-start">
-            <Button size="lg" className="gap-4" variant="outline">Mint NFT</Button>
-            <Button size="lg" className="gap-4">
+            <Button size="lg" className="gap-4 cursor-pointer" variant="outline">Mint NFT</Button>
+            <Button size="lg" className="gap-2 cursor-pointer">
               Start Playing <MoveRight className="w-4 h-4" />
             </Button>
           </div>
