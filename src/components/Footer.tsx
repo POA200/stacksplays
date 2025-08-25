@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Users } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -8,9 +9,11 @@ const Footer = () => {
         <p className="text-lg mb-4">
           Join the Fun and Be the First to Hear About Our Tournaments and Exciting Updates!
         </p>
-        <Button className="bg-chart-5">
-          Join Community
-        </Button>
+        <a href="x.com/stacksplays_" target="_blank" >
+          <Button className="bg-chart-5"> <Users className="h-5 w-5" />
+            Join Community
+          </Button>
+        </a>
       </div>
 
       {/* Copyright */}
