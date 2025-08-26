@@ -3,6 +3,8 @@ import Header from "../components/Header";
 import Feature from "../components/Feature"
 import Footer from "../components/Footer"
 import Stats from "../components/Stats"
+import Popular from "@/components/Popular";
+import Roadmap from "@/components/Roadmap";
 
 export const LandingPage = () => {
 
@@ -11,7 +13,9 @@ export const LandingPage = () => {
       <Header />
       <Hero />
       <Stats />
+      <Popular />
       <Feature />
+      <Roadmap />
       <Footer />
     </>
   )

@@ -5,7 +5,7 @@ const Stats = () => {
       {/* Center the stats container */}
       <div className="max-w-4xl mx-auto text-center">
         {/* Stats box */}
-        <div className="border-3 p-8 rounded-lg flex justify-around items-center">
+        <div className="border-4 border-primary p-8 rounded-xl flex justify-around items-center">
           {/* Stat 1 */}
           <div className="text-yellow-500 gap-10">
             <p className="text-3xl font-bold">10+</p>
@@ -13,7 +13,7 @@ const Stats = () => {
           </div>
 
           {/* Divider */}
-          <div className="border-l-2 border-primary h-18" />
+          <div className="border-l-3 border-primary h-18" />
 
           {/* Stat 2 */}
           <div className="text-green-500 gap-10">
@@ -22,7 +22,7 @@ const Stats = () => {
           </div>
 
           {/* Divider */}
-          <div className="border-l-2 border-primary h-18" />
+          <div className="border-l-3 border-primary h-18" />
 
           {/* Stat 3 */}
           <div className="text-blue-500 gap-10">
