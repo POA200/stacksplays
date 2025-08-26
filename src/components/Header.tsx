@@ -12,11 +12,11 @@ export const Header = () => {
         {/* Container with 3 columns */}
         <div className="container mx-auto min-h-20 grid grid-cols-3 items-center gap-4 px-8">
           {/* LEFT: Logo */}
-          <div className="flex items-center">
+          <div className="font-main flex items-center">
             <img src={headerLogo} className="w-14" alt="StacksPlays logo" />
             <div className="flex flex-col items-left text-left">
-              <p className="font-bold text-primary">Stacks</p>
-              <p className="font-bold text-primary">Plays</p>
+              <p className="font-orbitron font-bold text-primary">Stacks</p>
+              <p className="font-orbitron font-bold text-primary">Plays</p>
             </div>
           </div>
 

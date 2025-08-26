@@ -16,7 +16,7 @@ const Popular = () => {
 
         {/* Card 1 */}
         <div className="bg-primary pb-4 rounded-xl flex flex-col items-center justify-between hover:scale-102 transition-transform duration-300">
-          <img src={Stackswitch} alt="Switch Game" className="mb-6" />
+          <img src={Stackswitch} alt="Stacks Switch" className="mb-6" />
           <h3 className="text-background font-bold text-xl mb-2">STACKS SWITCH</h3>
         </div>
 

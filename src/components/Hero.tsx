@@ -14,7 +14,7 @@ export const Hero = () => (
         <div className="w-full flex flex-col items-center text-center gap-6 lg:items-start lg:text-left">
           <Badge variant="outline"> -- Welcome Player -- </Badge>
 
-          <h1 className=" text-chart-5 text-5xl md:text-9xl max-w-lg tracking-tighter font-bold">
+          <h1 className="text-chart-5 text-5xl md:text-9xl max-w-lg tracking-tighter font-bold">
             STACKS
           </h1>
           <h1 className="text-primary text-5xl md:text-8xl max-w-lg tracking-tighter font-bold">

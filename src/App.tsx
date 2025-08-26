@@ -1,5 +1,7 @@
-import { ThemeProvider } from "@/components/theme-provider"
 import LandingPage from "./Pages/LandingPage.tsx"
+import { ThemeProvider } from "@/components/theme-provider"
+import './index.css';
+
 
 function App() {
 
