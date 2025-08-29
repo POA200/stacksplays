@@ -24,12 +24,12 @@ export const NftMinting = () => {
         <Header />
       </div>
       <div className="flex flex-col justify-center items-center min-h-screen">
-        <div className="flex justify-center items-center w-full m-12 bg-foreground/10 backdrop-blur-sm p-4 rounded-lg">
+        <div className="flex justify-center items-center w-full bg-foreground/10 backdrop-blur-sm p-4 rounded-lg">
           <h3 className="text-primary text-3xl md:text-6xl max-w-sm tracking-tighter font-semi-bold">
             Mint NFT
           </h3>
         </div>
-        <div>
+        <div className="m-12">
           <div className="mb-8 bg-card border-2 border-secondary rounded-xl p-8">
             <div className="flex justify-center items-center mb-8">
               <img
