@@ -29,7 +29,7 @@ export const NftMinting = () => {
             Mint NFT
           </h3>
         </div>
-        <div className="p-12 m-12">
+        <div className="p-6 m-12">
           <div className="mb-8 bg-card border-2 border-secondary rounded-xl p-8">
             <div className="flex justify-center items-center mb-8">
               <img
