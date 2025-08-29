@@ -26,7 +26,7 @@ export const NftMinting = () => {
   return (
     <>
       <Header />
-      <div className="flex flex-col justify-center items-center min-h-screen p-10 m-18">
+      <div className="flex flex-col justify-center items-center min-h-screen m-24">
         <div className="flex justify-center items-center w-full ml-20 mr-20 bg-foreground/10 backdrop-blur-sm p-6 rounded-lg mb-18">
           <h1 className="text-primary text-3xl md:text-6xl max-w-sm tracking-tighter font-semi-bold">
             Mint NFT
