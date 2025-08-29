@@ -20,20 +20,22 @@ export const NftMinting = () => {
 
   return (
     <>
-      <Header />
-      <div className="flex flex-col justify-center items-center min-h-screen m-24">
-        <div className="flex justify-center items-center w-full m-12 bg-foreground/10 backdrop-blur-sm p-6 rounded-lg">
-          <h1 className="text-primary text-3xl md:text-6xl max-w-sm tracking-tighter font-semi-bold">
+      <div className="mb-24">
+        <Header />
+      </div>
+      <div className="flex flex-col justify-center items-center min-h-screen">
+        <div className="flex justify-center items-center w-full m-12 bg-foreground/10 backdrop-blur-sm p-4 rounded-lg">
+          <h3 className="text-primary text-3xl md:text-6xl max-w-sm tracking-tighter font-semi-bold">
             Mint NFT
-          </h1>
+          </h3>
         </div>
-        <div className=" justify-top items-top gap-12">
+        <div>
           <div className="mb-8 bg-card border-2 border-secondary rounded-xl p-8">
             <div className="flex justify-center items-center mb-8">
               <img
                 src={StacksplaysPunk}
                 alt="StacksPlays Punk"
-                className="w-120 h-120 object-contain rounded-md"
+                className="w-120 h-120 object-contain rounded-lg"
               />
             </div>
             <div className="flex justify-center items-center">
@@ -69,9 +71,7 @@ export const NftMinting = () => {
             </Button>
           </div>
         </div>
-
       </div>
-
       <Footer />
     </>
   )
