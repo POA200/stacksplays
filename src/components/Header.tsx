@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Wallet } from "lucide-react";
 import ModeToggle from "@/components/mode-toggle";
 import headerLogo from "/public/HeaderLogo.svg";
+import { Link } from 'react-router-dom';
 
 export const Header = () => {
   return (
@@ -12,13 +13,15 @@ export const Header = () => {
         {/* Container with 3 columns */}
         <div className="container mx-auto min-h-20 grid grid-cols-3 items-center gap-4 px-8">
           {/* LEFT: Logo */}
-          <div className="font-main flex items-center">
-            <img src={headerLogo} className="w-14" alt="StacksPlays logo" />
-            <div className="flex flex-col items-left text-left">
-              <p className="font-orbitron font-bold text-primary">Stacks</p>
-              <p className="font-orbitron font-bold text-primary">Plays</p>
+          <Link to="/">
+            <div className="font-main flex items-center">
+              <img src={headerLogo} className="w-14" alt="StacksPlays logo" />
+              <div className="flex flex-col items-left text-left">
+                <p className="font-orbitron font-bold text-primary">Stacks</p>
+                <p className="font-orbitron font-bold text-primary">Plays</p>
+              </div>
             </div>
-          </div>
+          </Link>
 
           {/* CENTER: Empty div to center the content */}
           <div></div>

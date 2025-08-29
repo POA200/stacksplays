@@ -110,12 +110,7 @@
   --sidebar-accent-foreground: oklch(0.956 0.012 258.3411043453467);
   --sidebar-border: oklch(0.366 0.030 245.1499915247374);
   --sidebar-ring: oklch(0.618 0.142 248.86947500536448);
-  --font-orbitron: 'Orbitron', sans-serif;
 }
-
-/*body {
-  font-family: var(--font-orbitron);
-}*/
 
 
 @layer base {

@@ -5,6 +5,7 @@ import Footer from "../components/Footer"
 import Stats from "../components/Stats"
 import Popular from "@/components/Popular";
 import Roadmap from "@/components/Roadmap";
+import JoinCommunity from "@/components/JoinCommunity";
 
 export const LandingPage = () => {
 
@@ -16,6 +17,7 @@ export const LandingPage = () => {
       <Popular />
       <Feature />
       <Roadmap />
+      <JoinCommunity />
       <Footer />
     </>
   )

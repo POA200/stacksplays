@@ -2,6 +2,7 @@ import { MoveRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import heroImage from "/public/HeroImage.svg";
+import { Link } from 'react-router-dom';
 
 export const Hero = () => (
   <section className="w-full py-20 lg:py-40 mb-0">
@@ -23,7 +24,9 @@ export const Hero = () => (
 
           {/* Buttons */}
           <div className="flex flex-row flex-wrap justify-left gap-4 lg:justify-start">
-            <Button size="lg" className="gap-4 cursor-pointer" variant="outline">Mint NFT</Button>
+            <Link to="/NftMinting">
+              <Button size="lg" className="gap-4 cursor-pointer" variant="outline">Mint NFT</Button>
+            </Link>
             <Button size="lg" className="gap-2 cursor-pointer">
               Start Playing <MoveRight className="w-4 h-4" />
             </Button>

@@ -1,6 +1,7 @@
-import LandingPage from "./Pages/LandingPage.tsx"
 import { ThemeProvider } from "@/components/theme-provider"
-import './index.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import LandingPage from "./Pages/LandingPage.tsx"
+import NftMinting from "./Pages/NftMinting.tsx"
 
 
 function App() {
@@ -8,7 +9,12 @@ function App() {
   return (
     <>
       <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-        <LandingPage />
+        <Router>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/NftMinting" element={<NftMinting />} />
+          </Routes>
+        </Router>
       </ThemeProvider>
     </>
   )
