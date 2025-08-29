@@ -35,7 +35,7 @@ export const NftMinting = () => {
               <img
                 src={StacksplaysPunk}
                 alt="StacksPlays Punk"
-                className="w-120 h-120 object-contain rounded-lg"
+                className="w-120 h-120 object-contain rounded-xl"
               />
             </div>
             <div className="flex justify-center items-center">
