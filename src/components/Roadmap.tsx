@@ -13,7 +13,7 @@ const Roadmap = () => {
   return (
     <section className="py-1 min-h-screen">
       {/* Title */}
-      <div className="text-center mb-24">
+      <div className="text-center mb-12">
         <h2 className="text-3xl font-bold lg:text-6xl text-primary text-center">ROADMAP</h2>
       </div>
 
