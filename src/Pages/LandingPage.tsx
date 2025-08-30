@@ -11,11 +11,15 @@ export const LandingPage = () => {
 
   return (
     <>
-      <Header />
+      <div className="mb-2 sm:mb-6 md:mb-8 lg:mb-10">
+        <Header />
+      </div>
       <Hero />
       <Stats />
       <Popular />
-      <Feature />
+      <div className="mb-10 sm:mb-20 md:mb-30 lg:mb-60">
+        <Feature />
+      </div>
       <Roadmap />
       <JoinCommunity />
       <Footer />

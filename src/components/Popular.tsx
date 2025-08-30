@@ -1,37 +1,55 @@
 "use client";
-import Wordsearch from "/public/Wordsearch.png";
-import Stackswitch from "/public/Stackswitch.png";
-import gameplaceholder from "/public/gameplaceholder.png";
+import { Button } from "@/components/ui/button";
+import React from "react";
 
-const Popular = () => {
+type GameCard = {
+  title: string;
+  img: string;
+  alt: string;
+};
+
+const games: GameCard[] = [
+  { title: "STACKS SWITCH", img: "/public/Stackswitch.png", alt: "Stacks Switch cover" },
+  { title: "WORD SEARCH", img: "/public/Wordsearch.png", alt: "Word Search cover" },
+  { title: "GAME 2", img: "/public/gameplaceholder.png", alt: "Game 2 cover" },
+];
+
+const Popular: React.FC = () => {
   return (
-    <section className="py-12">
-      {/* Title */}
-      <div className="text-center mb-24">
-        <h2 className="text-3xl font-bold lg:text-6xl text-primary text-center">POPULAR THIS WEEK</h2>
-      </div>
+    <section className="py-1 flex flex-col items-center justify-center min-h-screen">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <h2 className="text-center text-primary text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
+          POPULAR THIS WEEK
+        </h2>
 
-      {/* Cards */}
-      <div className="container mx-auto grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-6">
+        <div className="container mx-auto grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-6 m-12">
+          {games.map((g) => (
+            <article
+              key={g.title}
+              className="group rounded-2xl border border-secondary bg-card p-4 shadow-md transition hover:shadow-xl focus-within:shadow-xl"
+            >
+              {/* Image box keeps all cards same height */}
+              <div className="aspect-[5/5] w-full overflow-hidden rounded-3xl border-2 border-secondary bg-muted/10 flex items-center justify-center">
+                <img
+                  src={g.img}
+                  alt={g.alt}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  onError={(e) => ((e.currentTarget.src = "/public/gameplaceholder.png"))}
+                />
+              </div>
 
-        {/* Card 1 */}
-        <div className="bg-primary pb-4 rounded-xl flex flex-col items-center justify-between hover:scale-102 transition-transform duration-300">
-          <img src={Stackswitch} alt="Stacks Switch" className="mb-6" />
-          <h3 className="text-background font-bold text-xl mb-2">STACKS SWITCH</h3>
+              <h3 className="mt-4 text-center text-foreground text-lg sm:text-xl lg:text-2xl font-bold">
+                {g.title}
+              </h3>
+
+              {/* Optional: CTA per card */}
+              <Button className="mt-3 w-full text-lg cursor-pointer">
+                Play
+              </Button>
+            </article>
+          ))}
         </div>
-
-        {/* Card 2 */}
-        <div className="bg-primary pb-4 rounded-xl flex flex-col items-center justify-between hover:scale-102 transition-transform duration-300">
-          <img src={Wordsearch} alt="Word Search Game" className="mb-6" />
-          <h3 className="text-background font-bold text-xl mb-2">WORD SEARCH</h3>
-        </div>
-
-        {/* Card 3 */}
-        <div className="bg-primary pb-4 rounded-xl flex flex-col items-center justify-between hover:scale-102 transition-transform duration-300">
-          <img src={gameplaceholder} className="mb-6" />
-          <h3 className="text-background font-bold text-xl mb-2">GAME 2</h3>
-        </div>
-
       </div>
     </section>
   );

@@ -2,7 +2,7 @@ import { Wallet, Zap, Gamepad, Trophy } from "lucide-react";
 
 const Feature = () => {
   return (
-    <section className="py-1 flex flex-col items-center justify-center min-h-screen">
+    <section className="flex flex-col items-center justify-center mt-6 mb-6">
       <div className="container">
         <h2 className="text-3xl font-bold lg:text-6xl text-primary text-center mb-24">How it Works</h2>
         <div className="mt-10 grid gap-10 lg:mt-20 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-9xl">
