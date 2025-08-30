@@ -9,9 +9,9 @@ type GameCard = {
 };
 
 const games: GameCard[] = [
-  { title: "STACKS SWITCH", img: "/public/Stackswitch.png", alt: "Stacks Switch cover" },
-  { title: "WORD SEARCH", img: "/public/Wordsearch.png", alt: "Word Search cover" },
-  { title: "GAME 2", img: "/public/gameplaceholder.png", alt: "Game 2 cover" },
+  { title: "STACKS SWITCH", img: "/Stackswitch.png", alt: "Stacks Switch cover" },
+  { title: "WORD SEARCH", img: "/Wordsearch.png", alt: "Word Search cover" },
+  { title: "GAME 2", img: "/gameplaceholder.png", alt: "Game 2 cover" },
 ];
 
 const Popular: React.FC = () => {
@@ -22,7 +22,7 @@ const Popular: React.FC = () => {
           POPULAR THIS WEEK
         </h2>
 
-        <div className="container mx-auto grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-6 m-12">
+        <div className="container mx-auto grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-6 m-8">
           {games.map((g) => (
             <article
               key={g.title}
@@ -35,7 +35,7 @@ const Popular: React.FC = () => {
                   alt={g.alt}
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  onError={(e) => ((e.currentTarget.src = "/public/gameplaceholder.png"))}
+                  onError={(e) => ((e.currentTarget.src = "/gameplaceholder.png"))}
                 />
               </div>
 
