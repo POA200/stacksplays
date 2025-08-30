@@ -27,9 +27,11 @@ export const Hero = () => (
             <Link to="/NftMinting">
               <Button size="lg" className="p-8 text-2xl font-bold cursor-pointer rounded-md" variant="outline">Mint NFT</Button>
             </Link>
-            <Button size="lg" className="gap-2 p-8 text-2xl font-bold cursor-pointer rounded-md">
-              Start Playing <MoveRight className="w-8 h-8" />
-            </Button>
+            <Link to="/Dashboard">
+              <Button size="lg" className="gap-2 p-8 text-2xl font-bold cursor-pointer rounded-md">
+                Start Playing <MoveRight className="w-8 h-8" />
+              </Button>
+            </Link>
           </div>
         </div>
 
