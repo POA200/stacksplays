@@ -2,7 +2,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LandingPage from "./Pages/LandingPage.tsx"
 import NftMinting from "./Pages/NftMinting.tsx"
-import Dashboard from "./Pages/Dashboard.tsx"
+import Dashboard from "./Pages/DashboardPage/Dashboard.tsx"
 
 
 function App() {
