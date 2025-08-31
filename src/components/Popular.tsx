@@ -1,5 +1,5 @@
 "use client";
-import { Button } from "@/components/ui/button";
+{/*import { Button } from "@/components/ui/button";*/ }
 import React from "react";
 
 type GameCard = {
@@ -39,14 +39,14 @@ const Popular: React.FC = () => {
                 />
               </div>
 
-              <h3 className="mt-4 text-center text-foreground text-lg sm:text-xl lg:text-2xl font-bold">
+              <h3 className=" text-center text-foreground text-lg sm:text-xl lg:text-2xl font-bold">
                 {g.title}
               </h3>
 
               {/* Optional: CTA per card */}
-              <Button className="mt-3 w-full text-lg cursor-pointer">
+              {/*<Button className="mt-3 w-full text-lg cursor-pointer">
                 Play
-              </Button>
+              </Button>*/}
             </article>
           ))}
         </div>
