@@ -1,4 +1,4 @@
-import { IconCirclePlusFilled, type Icon } from "@tabler/icons-react"
+import { type Icon } from "@tabler/icons-react"
 
 import ModeToggle from "@/components/mode-toggle";
 
