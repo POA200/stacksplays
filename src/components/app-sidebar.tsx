@@ -7,7 +7,6 @@ import {
 } from "@tabler/icons-react"
 
 import Stacksplays from "/public/HeaderLogo.svg";
-import ModeToggle from "@/components/mode-toggle";
 
 import { NavMain } from "@/components/nav-main"
 import { NavUser } from "@/components/nav-user"
@@ -77,7 +76,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavMain items={data.navMain} />
       </SidebarContent>
       <SidebarFooter>
-        <ModeToggle />
         <NavUser user={data.user} />
       </SidebarFooter>
     </Sidebar>
