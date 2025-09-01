@@ -1,162 +1,47 @@
-import { IconTrendingUp } from "@tabler/icons-react"
-
 import { Badge } from "@/components/ui/badge"
 import {
   Card,
-  CardAction,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-
+import { Button } from "@/components/ui/button"
+import StacksplaysWordsearch from "/public/StacksplaysWordsearch.png"
 
 export function SectionCards() {
 
   return (
     <div className="*:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card dark:*:data-[slot=card]:bg-card grid grid-cols-1 gap-4 px-4 *:data-[slot=card]:bg-gradient-to-t *:data-[slot=card]:shadow-xs lg:px-6 @xl/main:grid-cols-2 @5xl/main:grid-cols-4">
+
       <Card className="@container/card">
         <CardHeader>
-          <CardDescription></CardDescription>
-          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
+          <CardDescription className="flex-col space-y-2">
+            <img
+              src={StacksplaysWordsearch}
+              alt="Word Search"
+              className="rounded-md w-full object-cover"
+            />
+          </CardDescription>
+          <CardTitle className="flex-col items-side justify-center text-sm font-light">
+            <div className="flex justify-between w-full">
+              <div className="flex gap-1">Next game in:
+                <Badge variant="outline">
+                  7D 24h 50m 32s
+                </Badge></div>
+              <Badge variant="default">
+                open
+              </Badge>
+            </div>
+          </CardTitle>
+        </CardHeader>
+        <CardFooter className="flex flex-col items-center justify-center gap-3 text-sm">
+          <div className="flex-col items-side text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
             WORD SEARCH
-          </CardTitle>
-          <CardAction>
-            <Badge variant="default">
-              open
-            </Badge>
-          </CardAction>
-        </CardHeader>
-        <CardFooter className="flex-col items-start gap-1.5 text-sm">
-          <div className="line-clamp-1 flex gap-2 font-medium">
-            Most Popular This Month <IconTrendingUp className="size-4" />
           </div>
-        </CardFooter>
-      </Card>
-      <Card className="@container/card">
-        <CardHeader>
-          <CardDescription></CardDescription>
-          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-            STACKS SWITCH
-          </CardTitle>
-          <CardAction>
-            <Badge variant="outline">
-              closed
-            </Badge>
-          </CardAction>
-        </CardHeader>
-        <CardFooter className="flex-col items-start gap-1.5 text-sm">
-          <div className="line-clamp-1 flex gap-2 font-medium">
-            Endless Runner
-          </div>
-        </CardFooter>
-      </Card>
-      <Card className="@container/card">
-        <CardHeader>
-          <CardDescription></CardDescription>
-          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-            GAME 2
-          </CardTitle>
-          <CardAction>
-            <Badge variant="outline">
-              closed
-            </Badge>
-          </CardAction>
-        </CardHeader>
-        <CardFooter className="flex-col items-start gap-1.5 text-sm">
-          <div className="line-clamp-1 flex gap-2 font-medium">
-            Coming soon
-          </div>
-        </CardFooter>
-      </Card>
-      <Card className="@container/card">
-        <CardHeader>
-          <CardDescription></CardDescription>
-          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-            GAME 3
-          </CardTitle>
-          <CardAction>
-            <Badge variant="outline">
-              closed
-            </Badge>
-          </CardAction>
-        </CardHeader>
-        <CardFooter className="flex-col items-start gap-1.5 text-sm">
-          <div className="line-clamp-1 flex gap-2 font-medium">
-            Coming Soon
-          </div>
-        </CardFooter>
-      </Card>
-      <Card className="@container/card">
-        <CardHeader>
-          <CardDescription></CardDescription>
-          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-            GAME 4
-          </CardTitle>
-          <CardAction>
-            <Badge variant="outline">
-              closed
-            </Badge>
-          </CardAction>
-        </CardHeader>
-        <CardFooter className="flex-col items-start gap-1.5 text-sm">
-          <div className="line-clamp-1 flex gap-2 font-medium">
-            Coming soon
-          </div>
-        </CardFooter>
-      </Card>
-      <Card className="@container/card">
-        <CardHeader>
-          <CardDescription></CardDescription>
-          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-            GAME 5
-          </CardTitle>
-          <CardAction>
-            <Badge variant="outline">
-              closed
-            </Badge>
-          </CardAction>
-        </CardHeader>
-        <CardFooter className="flex-col items-start gap-1.5 text-sm">
-          <div className="line-clamp-1 flex gap-2 font-medium">
-            Coming Soon
-          </div>
-        </CardFooter>
-      </Card>
-      <Card className="@container/card">
-        <CardHeader>
-          <CardDescription></CardDescription>
-          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-            GAME 6
-          </CardTitle>
-          <CardAction>
-            <Badge variant="outline">
-              closed
-            </Badge>
-          </CardAction>
-        </CardHeader>
-        <CardFooter className="flex-col items-start gap-1.5 text-sm">
-          <div className="line-clamp-1 flex gap-2 font-medium">
-            Coming soon
-          </div>
-        </CardFooter>
-      </Card>
-      <Card className="@container/card">
-        <CardHeader>
-          <CardDescription></CardDescription>
-          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-            GAME 7
-          </CardTitle>
-          <CardAction>
-            <Badge variant="outline">
-              closed
-            </Badge>
-          </CardAction>
-        </CardHeader>
-        <CardFooter className="flex-col items-start gap-1.5 text-sm">
-          <div className="line-clamp-1 flex gap-2 font-medium">
-            Coming Soon
-          </div>
+          <Button className="w-full rounded-md text-2xl font-semi-bold p-6 cursor-pointer" size={"lg"}>
+            Play Now
+          </Button>
         </CardFooter>
       </Card>
     </div>
