@@ -43,12 +43,20 @@ export function NavMain({
                   end={item.url === "/app"}
                   className={({ isActive }) =>
                     [
-                      "rounded-lg px-3 py-2 text-sm flex items-center gap-2",
-                      isActive ? "bg-white/10" : "hover:bg-white/5",
+                      // base
+                      "relative flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-colors",
+                      // left border via ::before (hidden by default)
+                      "before:absolute before:left-0 before:top-0 before:h-full before:w-1 before:rounded-r-md before:bg-primary before:opacity-0",
+                      // when active (aria-current=page)
+                      "aria-[current=page]:before:opacity-100 aria-[current=page]:bg-white/5 aria-[current=page]:font-semibold aria-[current=page]:text-primary",
+                      // also color the nested SVG when active
+                      "aria-[current=page]:[&_svg]:text-primary",
+                      // inactive hover
+                      !isActive ? "text-muted-foreground hover:bg-white/5" : "",
                     ].join(" ")
                   }
                 >
-                  {item.icon && <item.icon />}
+                  {item.icon && <item.icon className="shrink-0" />}
                   <span>{item.title}</span>
                 </NavLink>
               </SidebarMenuButton>
