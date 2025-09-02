@@ -1,15 +1,16 @@
-import * as React from "react"
+import * as React from "react";
 import {
   IconArrowBarUp,
   IconHome,
   IconBrandZapier,
   IconCash,
-} from "@tabler/icons-react"
+} from "@tabler/icons-react";
+import { NavLink } from "react-router-dom";
 
-import Stacksplays from "/public/HeaderLogo.svg";
+import Stacksplays from "/HeaderLogo.svg";
 
-import { NavMain } from "@/components/nav-main"
-import { NavUser } from "@/components/nav-user"
+import { NavMain } from "@/components/nav-main";
+import { NavUser } from "@/components/nav-user";
 import {
   Sidebar,
   SidebarContent,
@@ -18,42 +19,26 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
 
 const data = {
   user: {
-    name: "StacksPlays",
-    email: "stacksplays0@gmail.com",
-    avatar: "/public/StacksplaysPunk.png",
+    bns: "StacksPlays.btc",
+    address: "spjem...qtj",
+    avatar: "/StacksplaysPunk.png", // public assets: just "/file"
   },
   navMain: [
-    {
-      title: "Dashboard",
-      url: "#",
-      icon: IconHome,
-    },
-    {
-      title: "Casino",
-      url: "#",
-      icon: IconCash,
-    },
-    {
-      title: "Leaderboard",
-      url: "#",
-      icon: IconArrowBarUp,
-    },
-    {
-      title: "NFT Gallery",
-      url: "#",
-      icon: IconBrandZapier,
-    },
+    { title: "Dashboard", url: "/app", icon: IconHome },
+    { title: "Casino", url: "/app/casino", icon: IconCash },
+    { title: "Leaderboard", url: "/app/leaderboard", icon: IconArrowBarUp },
+    { title: "NFT Gallery", url: "/app/nft-gallery", icon: IconBrandZapier },
   ],
-
-}
+};
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="offcanvas" {...props}>
+      {/* Logo / brand */}
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
@@ -61,23 +46,28 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               asChild
               className="data-[slot=sidebar-menu-button]:!p-1.5"
             >
-              <a href="#">
+              <NavLink to="/app" end>
                 <img
                   src={Stacksplays}
-                  alt="stacksplays logo"
-                  className="!size-6 border-1 border-primary rounded-full" />
+                  alt="StacksPlays logo"
+                  className="!size-6 border-1 border-primary rounded-full"
+                />
                 <span className="text-base font-semibold">StacksPlays</span>
-              </a>
+              </NavLink>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
+
+      {/* Navigation */}
       <SidebarContent>
         <NavMain items={data.navMain} />
       </SidebarContent>
+
+      {/* Footer (user info) */}
       <SidebarFooter>
         <NavUser user={data.user} />
       </SidebarFooter>
     </Sidebar>
-  )
+  );
 }
