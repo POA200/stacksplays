@@ -24,6 +24,7 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar"
+import { NavLink } from "react-router-dom"
 
 export function NavUser({
   user,
@@ -80,10 +81,12 @@ export function NavUser({
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <DropdownMenuItem>
-                <IconUserCircle />
-                My Profile
-              </DropdownMenuItem>
+              <NavLink to="/app/profile">
+                <DropdownMenuItem>
+                  <IconUserCircle />
+                  My Profile
+                </DropdownMenuItem>
+              </NavLink>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem>

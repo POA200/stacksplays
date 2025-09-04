@@ -1,3 +1,3 @@
-export default function Casino() {
-  return <div className="p-4">NFT page</div>;
+export default function NFTGallery() {
+  return <div className="p-4">NFT Gallery Coming Soon</div>;
 }

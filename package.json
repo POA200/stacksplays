@@ -28,6 +28,7 @@
     "@radix-ui/react-toggle": "^1.1.10",
     "@radix-ui/react-toggle-group": "^1.1.11",
     "@radix-ui/react-tooltip": "^1.2.8",
+    "@stacks/stacking": "^7.2.0",
     "@tabler/icons-react": "^3.34.1",
     "@tailwindcss/vite": "^4.1.12",
     "@tanstack/react-table": "^8.21.3",
@@ -47,6 +48,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
+    "@types/jquery": "^3.5.33",
     "@types/node": "^24.3.0",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",

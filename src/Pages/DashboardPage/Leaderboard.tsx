@@ -1,3 +1,3 @@
-export default function Casino() {
-  return <div className="p-4">Leaderboard page</div>;
+export default function Leaderboard() {
+  return <div className="p-4">Leaderboard Coming Soon</div>;
 }

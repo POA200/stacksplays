@@ -1,9 +1,10 @@
 import * as React from "react";
 import {
-  IconArrowBarUp,
+  IconTrophy,
   IconHome,
-  IconBrandZapier,
-  IconCash,
+  IconLibraryPhoto,
+  IconDice6,
+  IconMessage,
 } from "@tabler/icons-react";
 import { NavLink } from "react-router-dom";
 
@@ -29,9 +30,10 @@ const data = {
   },
   navMain: [
     { title: "Dashboard", url: "/app", icon: IconHome },
-    { title: "Casino", url: "/app/casino", icon: IconCash },
-    { title: "Leaderboard", url: "/app/leaderboard", icon: IconArrowBarUp },
-    { title: "NFT Gallery", url: "/app/nft-gallery", icon: IconBrandZapier },
+    { title: "Casino", url: "/app/casino", icon: IconDice6 },
+    { title: "Leaderboard", url: "/app/leaderboard", icon: IconTrophy },
+    { title: "NFT Gallery", url: "/app/nft-gallery", icon: IconLibraryPhoto },
+    { title: "Chat", url: "/app/chat", icon: IconMessage },
   ],
 };
 

@@ -10,6 +10,9 @@ import DashboardHome from "./Pages/DashboardPage/Dashboard.tsx";
 import Casino from "./Pages/DashboardPage/Casino.tsx";
 import Leaderboard from "./Pages/DashboardPage/Leaderboard.tsx";
 import NFTGallery from "./Pages/DashboardPage/NFTGallery.tsx";
+import Chat from "./Pages/DashboardPage/Chat.tsx";
+import Profile from "./Pages/DashboardPage/Profile.tsx";
+import Wordsearch from "./Pages/DashboardPage/Wordsearch.tsx";
 
 function App() {
   return (
@@ -24,8 +27,11 @@ function App() {
           <Route path="/app" element={<DashboardLayout />}>
             <Route index element={<DashboardHome />} />             {/* /app */}
             <Route path="casino" element={<Casino />} />            {/* /app/casino */}
-            <Route path="leaderboard" element={<Leaderboard />} />  {/* /app/leaderboard */}
+            <Route path="Leaderboard" element={<Leaderboard />} />  {/* /app/leaderboard */}
             <Route path="nft-gallery" element={<NFTGallery />} />   {/* /app/nft-gallery */}
+            <Route path="chat" element={<Chat />} />   {/* /app/chat */}
+            <Route path="profile" element={<Profile />} />   {/* /app/Profile */}
+            <Route path="wordsearch" element={<Wordsearch />} />   {/* /app/Wordsearch */}
           </Route>
 
           {/* 404 */}
