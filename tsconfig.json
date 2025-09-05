@@ -16,6 +16,9 @@
       ],
       "@contexts/*": [
         "src/contexts/*"
+      ],
+      "@utils/*": [
+        "utils/*"
       ]
     }
   }

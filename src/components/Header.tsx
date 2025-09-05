@@ -1,10 +1,10 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Wallet } from "lucide-react";
+{/*import { Button } from "@/components/ui/button";*/ }
 import ModeToggle from "@/components/mode-toggle";
 import headerLogo from "/public/HeaderLogo.svg";
 import { Link } from 'react-router-dom';
+import Button from "./WalletButton";
 
 export const Header = () => {
   return (
@@ -28,10 +28,11 @@ export const Header = () => {
 
           {/* RIGHT: Connect Wallet and Mode Toggle */}
           <div className="flex justify-end items-center gap-4">
-            <Button className="cursor-pointer rounded-xl">
+            <Button />
+            {/* <Button className="cursor-pointer rounded-xl">
               <Wallet className="w-4 h-4" />
               Connect Wallet
-            </Button>
+            </Button>*/}
             <div className=" lg:block cursor-pointer">
               <ModeToggle />
             </div>
