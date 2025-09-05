@@ -27,7 +27,7 @@ export const Header = () => {
           <div></div>
 
           {/* RIGHT: Connect Wallet and Mode Toggle */}
-          <div className="flex justify-end items-center gap-4">
+          <div className="flex justify-end items-center gap-2">
             <Button />
             {/* <Button className="cursor-pointer rounded-xl">
               <Wallet className="w-4 h-4" />

@@ -1,6 +1,5 @@
 import {
   IconDotsVertical,
-  IconLogout,
   IconUserCircle,
 } from "@tabler/icons-react"
 
@@ -25,6 +24,7 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar"
 import { NavLink } from "react-router-dom"
+import Button from "./WalletButton";
 
 export function NavUser({
   user,
@@ -89,10 +89,11 @@ export function NavUser({
               </NavLink>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <Button />
+            {/*<DropdownMenuItem>
               <IconLogout />
               Disconnect Wallet
-            </DropdownMenuItem>
+            </DropdownMenuItem>*/}
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarMenuItem>

@@ -9,9 +9,10 @@ import {
 import { NavLink } from "react-router-dom";
 
 import Stacksplays from "/HeaderLogo.svg";
+import Button from "./WalletButton";
 
 import { NavMain } from "@/components/nav-main";
-import { NavUser } from "@/components/nav-user";
+{/*import { NavUser } from "@/components/nav-user";*/ }
 import {
   Sidebar,
   SidebarContent,
@@ -48,7 +49,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               asChild
               className="data-[slot=sidebar-menu-button]:!p-1.5"
             >
-              <NavLink to="/app" end>
+              <NavLink to="/" end>
                 <img
                   src={Stacksplays}
                   alt="StacksPlays logo"
@@ -68,7 +69,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
       {/* Footer (user info) */}
       <SidebarFooter>
-        <NavUser user={data.user} />
+        {/*<NavUser user={data.user} />*/}
+        <Button />
       </SidebarFooter>
     </Sidebar>
   );
