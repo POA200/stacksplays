@@ -5,11 +5,13 @@ import {
   IconLibraryPhoto,
   IconDice6,
   IconMessage,
+  IconUser,
 } from "@tabler/icons-react";
 import { NavLink } from "react-router-dom";
 
 import Stacksplays from "/HeaderLogo.svg";
 import Button from "./WalletButton";
+import ModeToggle from "@/components/mode-toggle";
 
 import { NavMain } from "@/components/nav-main";
 {/*import { NavUser } from "@/components/nav-user";*/ }
@@ -35,6 +37,7 @@ const data = {
     { title: "Leaderboard", url: "/app/leaderboard", icon: IconTrophy },
     { title: "NFT Gallery", url: "/app/nft-gallery", icon: IconLibraryPhoto },
     { title: "Chat", url: "/app/chat", icon: IconMessage },
+    { title: "My Profile", url: "/app/profile", icon: IconUser },
   ],
 };
 
@@ -68,9 +71,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarContent>
 
       {/* Footer (user info) */}
-      <SidebarFooter>
+      <SidebarFooter className="flex flex-row justify-center items-center gap-2">
         {/*<NavUser user={data.user} />*/}
         <Button />
+        <span>
+          <ModeToggle /></span>
       </SidebarFooter>
     </Sidebar>
   );

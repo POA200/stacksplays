@@ -1,7 +1,7 @@
 import { type Icon } from "@tabler/icons-react";
 import { NavLink } from "react-router-dom";
 
-import ModeToggle from "@/components/mode-toggle";
+
 import { Button } from "@/components/ui/button";
 import {
   SidebarGroup,
@@ -27,12 +27,10 @@ export function NavMain({
               className="size-8 group-data-[collapsible=icon]:opacity-0"
               variant="outline"
             >
-              <ModeToggle />
               <span className="sr-only">Toggle theme</span>
             </Button>
           </SidebarMenuItem>
         </SidebarMenu>
-
         {/* Nav links */}
         <SidebarMenu>
           {items.map((item) => (
