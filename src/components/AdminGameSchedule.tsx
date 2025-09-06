@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { useAuth } from "@/contexts/AuthContext";
+import { useNavigate } from "react-router-dom"; // Import the navigate hook
 
 type GameResponse = {
   id: string;
@@ -18,11 +19,10 @@ const API = import.meta.env.VITE_API_URL as string;
 const ADMIN_KEY = import.meta.env.VITE_ADMIN_KEY as string;
 
 function toLocalDatetimeInputValue(ms: number) {
-  // Convert ms (UTC) -> "YYYY-MM-DDTHH:mm" in local timezone for <input type="datetime-local">
   const d = new Date(ms);
   const pad = (n: number) => String(n).padStart(2, "0");
   const yyyy = d.getFullYear();
-  const mm = pad(d.getMonth() + 1); // Month is 0-indexed
+  const mm = pad(d.getMonth() + 1);
   const dd = pad(d.getDate());
   const hh = pad(d.getHours());
   const mi = pad(d.getMinutes());
@@ -30,7 +30,6 @@ function toLocalDatetimeInputValue(ms: number) {
 }
 
 function fromLocalDatetimeInputValue(v: string) {
-  // The browser gives local time; Date(...) converts to ms UTC internally.
   return new Date(v).getTime();
 }
 
@@ -50,14 +49,15 @@ function formatDHMS(ms: number) {
 export default function AdminGameSchedule() {
   const user = useAuth();
   const isAdmin = user?.role === "admin";
+  const navigate = useNavigate(); // Initialize navigate
 
   const [gameId] = useState("word-search");
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const [opensAt, setOpensAt] = useState<string>("");   // datetime-local string
-  const [closesAt, setClosesAt] = useState<string>(""); // datetime-local string
+  const [opensAt, setOpensAt] = useState<string>("");
+  const [closesAt, setClosesAt] = useState<string>("");
   const [serverState, setServerState] = useState<GameResponse | null>(null);
 
   const isOpen = serverState?.isOpen ?? false;
@@ -96,7 +96,7 @@ export default function AdminGameSchedule() {
         opensAt: fromLocalDatetimeInputValue(opensAt),
         closesAt: fromLocalDatetimeInputValue(closesAt),
       };
-      const res = await fetch(`${API} / api / games / ${gameId} / schedule`, {
+      const res = await fetch(`${API}/api/games/${gameId}/schedule`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -105,7 +105,6 @@ export default function AdminGameSchedule() {
         body: JSON.stringify(body),
       });
       if (!res.ok) throw new Error("Save failed");
-      // Fetch updated game data after successful schedule update
       await fetchGame();
     } catch (e: any) {
       setError(e.message || "Save failed");
@@ -118,12 +117,11 @@ export default function AdminGameSchedule() {
     setSaving(true);
     setError(null);
     try {
-      const res = await fetch(`${API} / api / games / ${gameId} / reset`, {
+      const res = await fetch(`${API}/api/games/${gameId}/reset`, {
         method: "POST",
         headers: { "x-admin-key": ADMIN_KEY },
       });
       if (!res.ok) throw new Error("Reset failed");
-      // Fetch updated game data after reset
       await fetchGame();
     } catch (e: any) {
       setError(e.message || "Reset failed");
@@ -135,6 +133,10 @@ export default function AdminGameSchedule() {
   useEffect(() => {
     fetchGame();
   }, []);
+
+  const handleBack = () => {
+    navigate(-1); // Go back to the previous page
+  };
 
   if (!isAdmin) {
     return (
@@ -207,6 +209,11 @@ export default function AdminGameSchedule() {
         </Button>
         <Button variant="ghost" onClick={fetchGame} disabled={loading}>
           Refresh
+        </Button>
+
+        {/* Back Button */}
+        <Button variant="outline" onClick={handleBack} className="mt-2">
+          Back
         </Button>
       </CardFooter>
     </Card>
