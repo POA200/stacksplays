@@ -32,6 +32,8 @@ const WalletButton: React.FC = () => {
       if (userData?.addresses) {
         setUserAddress(userData.addresses.stx[0].address);
       }
+      // Store session for AuthContext
+      window.localStorage.setItem("stxUserSession", JSON.stringify(userData));
       setIsAuthenticated(true);
       console.log('Connected:', response.addresses);
     } catch (error) {
@@ -43,6 +45,7 @@ const WalletButton: React.FC = () => {
     disconnect();
     setIsAuthenticated(false);
     setUserAddress(null);
+    window.localStorage.removeItem("stxUserSession");
     console.log('User disconnected');
   };
 

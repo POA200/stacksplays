@@ -10,7 +10,6 @@ type GameResponse = {
   id: string;
   opensAt: number;
   closesAt: number;
-  isOpen: boolean;
   timeLeftMs: number;
 };
 
@@ -29,7 +28,6 @@ export function GameCards() {
   const navigate = useNavigate();
   const user = useAuth();
 
-  const [isOpen, setIsOpen] = useState<boolean>(false);
   const [secondsLeft, setSecondsLeft] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(true);
   const tickRef = useRef<number | null>(null);
@@ -40,7 +38,6 @@ export function GameCards() {
     try {
       const res = await fetch(`${API}/api/games/word-search`);
       const data: GameResponse = await res.json();
-      setIsOpen(data.isOpen);
       setSecondsLeft(Math.max(0, Math.floor(data.timeLeftMs / 1000)));
     } catch (e) {
       console.error("Failed to fetch game state", e);
@@ -54,6 +51,10 @@ export function GameCards() {
     fetchGame();
   }, []);
 
+  // Game is open only when countdown hits zero
+  const isOpen = secondsLeft === 0;
+  const headerLabel = useMemo(() => (!isOpen ? "Opens in:" : ""), [isOpen]);
+
   // local countdown + auto-refresh on transition
   useEffect(() => {
     if (loading) return;
@@ -61,7 +62,6 @@ export function GameCards() {
     tickRef.current = window.setInterval(() => {
       setSecondsLeft((prev) => {
         if (prev <= 1) {
-          // We just hit the transition (open<->closed). Re-fetch authoritative state.
           fetchGame();
           return 0;
         }
@@ -71,12 +71,7 @@ export function GameCards() {
     return () => {
       if (tickRef.current) window.clearInterval(tickRef.current);
     };
-  }, [loading, isOpen]);
-
-  const headerLabel = useMemo(
-    () => (isOpen ? "Ends in:" : "Opens in:"),
-    [isOpen]
-  );
+  }, [loading]);
 
   const handlePlayNow = () => {
     if (isOpen) navigate("/app/Wordsearch");
@@ -87,13 +82,19 @@ export function GameCards() {
     try {
       const res = await fetch(`${API}/api/games/word-search/reset`, {
         method: "POST",
-        headers: { "x-admin-key": ADMIN_KEY },
+        headers: {
+          "Content-Type": "application/json",
+          "x-admin-key": ADMIN_KEY,
+        },
       });
-      if (!res.ok) throw new Error("reset failed");
+      if (!res.ok) {
+        const errText = await res.text();
+        throw new Error(`reset failed: ${res.status} ${errText}`);
+      }
       await fetchGame();
-    } catch (e) {
+    } catch (e: any) {
       console.error(e);
-      alert("Reset failed");
+      alert(e.message || "Reset failed");
     }
   };
 
@@ -103,10 +104,14 @@ export function GameCards() {
         <CardHeader>
           <div className="flex justify-between w-full">
             <div className="flex items-center gap-2 text-sm">
-              {headerLabel}
-              <Badge variant="outline">
-                {loading ? "…" : formatDHMS(secondsLeft)}
-              </Badge>
+              {headerLabel && (
+                <>
+                  {headerLabel}
+                  <Badge variant="outline">
+                    {loading ? "…" : formatDHMS(secondsLeft)}
+                  </Badge>
+                </>
+              )}
             </div>
             <Badge variant={isOpen ? "default" : "secondary"}>
               {isOpen ? "open" : "closed"}

@@ -19,6 +19,7 @@ const API = import.meta.env.VITE_API_URL as string;
 const ADMIN_KEY = import.meta.env.VITE_ADMIN_KEY as string;
 
 function toLocalDatetimeInputValue(ms: number) {
+  // Format for <input type="datetime-local">: "YYYY-MM-DDTHH:MM"
   const d = new Date(ms);
   const pad = (n: number) => String(n).padStart(2, "0");
   const yyyy = d.getFullYear();
@@ -26,7 +27,7 @@ function toLocalDatetimeInputValue(ms: number) {
   const dd = pad(d.getDate());
   const hh = pad(d.getHours());
   const mi = pad(d.getMinutes());
-  return `${yyyy} -${mm} -${dd}T${hh}:${mi}`;
+  return `${yyyy}-${mm}-${dd}T${hh}:${mi}`;
 }
 
 function fromLocalDatetimeInputValue(v: string) {
@@ -76,7 +77,15 @@ export default function AdminGameSchedule() {
     try {
       const res = await fetch(`${API}/api/games/${gameId}`);
       if (!res.ok) throw new Error(`GET failed: ${res.status}`);
-      const data: GameResponse = await res.json();
+      const text = await res.text();
+      let data: GameResponse;
+      try {
+        data = JSON.parse(text);
+      } catch {
+        throw new Error(
+          `API did not return JSON. Check VITE_API_URL and backend status.\nResponse: ${text.slice(0, 100)}`
+        );
+      }
       setServerState(data);
       setOpensAt(toLocalDatetimeInputValue(data.opensAt));
       setClosesAt(toLocalDatetimeInputValue(data.closesAt));
@@ -119,9 +128,15 @@ export default function AdminGameSchedule() {
     try {
       const res = await fetch(`${API}/api/games/${gameId}/reset`, {
         method: "POST",
-        headers: { "x-admin-key": ADMIN_KEY },
+        headers: {
+          "Content-Type": "application/json",
+          "x-admin-key": ADMIN_KEY,
+        },
       });
-      if (!res.ok) throw new Error("Reset failed");
+      if (!res.ok) {
+        const errText = await res.text();
+        throw new Error(`Reset failed: ${res.status} ${errText}`);
+      }
       await fetchGame();
     } catch (e: any) {
       setError(e.message || "Reset failed");
