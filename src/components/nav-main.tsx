@@ -11,6 +11,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 
+// Renders main sidebar navigation links and theme toggle
 export function NavMain({
   items,
 }: {
@@ -18,8 +19,9 @@ export function NavMain({
 }) {
   return (
     <SidebarGroup>
+      {/* Sidebar group content: theme toggle and nav links */}
       <SidebarGroupContent className="flex flex-col gap-2">
-        {/* Theme toggle */}
+        {/* Theme toggle button */}
         <SidebarMenu>
           <SidebarMenuItem className="flex items-center gap-2">
             <Button
@@ -31,8 +33,9 @@ export function NavMain({
             </Button>
           </SidebarMenuItem>
         </SidebarMenu>
-        {/* Nav links */}
+        {/* Navigation links for main routes */}
         <SidebarMenu>
+          {/* Render each main nav link with icon */}
           {items.map((item) => (
             <SidebarMenuItem key={item.title}>
               <SidebarMenuButton asChild tooltip={item.title}>

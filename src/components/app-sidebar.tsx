@@ -45,6 +45,7 @@ const data = {
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const user = useAuth();
   const isAdmin = user?.role === "admin";
+  console.log("[AppSidebar] user:", user, "isAdmin:", isAdmin);
 
   // ✅ Build the items array dynamically (this is the missing piece)
   const navItems = React.useMemo(

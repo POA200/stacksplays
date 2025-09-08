@@ -1,4 +1,5 @@
 "use client"
+// NavDocuments: Sidebar group for document navigation links with dropdown actions
 
 import {
   IconDots,
@@ -25,6 +26,7 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar"
 
+// Renders a sidebar group for document links with dropdown menu for actions
 export function NavDocuments({
   items,
 }: {
@@ -34,12 +36,15 @@ export function NavDocuments({
     icon: Icon
   }[]
 }) {
+  // Detect if sidebar is in mobile mode
   const { isMobile } = useSidebar()
 
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
+      {/* Sidebar label for documents section */}
       <SidebarGroupLabel>Documents</SidebarGroupLabel>
       <SidebarMenu>
+        {/* Render each document link with icon and dropdown menu */}
         {items.map((item) => (
           <SidebarMenuItem key={item.name}>
             <SidebarMenuButton asChild>

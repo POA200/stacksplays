@@ -31,7 +31,10 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         }
       } catch { }
       const ADMIN_ADDRESS = "SP2BWMDQ6FFHCRGRP1VCAXHSMYTDY8J0T0J5AZV4Q";
-      const role = address === ADMIN_ADDRESS ? "admin" : "user";
+      const normalizedAddress = address.trim().toUpperCase();
+      const normalizedAdmin = ADMIN_ADDRESS.trim().toUpperCase();
+      const role = normalizedAddress === normalizedAdmin ? "admin" : "user";
+      console.log("[AuthContext] Detected address:", address, "Normalized:", normalizedAddress, "Role:", role);
       setUser({ bns, role, avatar });
     };
 

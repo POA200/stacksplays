@@ -8,22 +8,27 @@ type GameCard = {
   alt: string;
 };
 
+// List of popular games to display
 const games: GameCard[] = [
   { title: "STACKS SWITCH", img: "/Stackswitch.png", alt: "Stacks Switch cover" },
   { title: "WORD SEARCH", img: "/Wordsearch.png", alt: "Word Search cover" },
   { title: "GAME 2", img: "/gameplaceholder.png", alt: "Game 2 cover" },
 ];
 
+// Popular: Displays popular games section with cards
 const Popular: React.FC = () => {
   return (
     <section className="py-1 flex flex-col items-center justify-center min-h-screen">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        {/* Section title */}
         <h2 className="text-center text-primary text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
           POPULAR THIS WEEK
         </h2>
 
+        {/* Grid of popular game cards */}
         <div className="container mx-auto grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-6 m-8">
           {games.map((g) => (
+            // Individual game card
             <article
               key={g.title}
               className="group rounded-2xl border border-secondary bg-card p-4 shadow-md transition hover:shadow-xl focus-within:shadow-xl"
@@ -39,19 +44,20 @@ const Popular: React.FC = () => {
                 />
               </div>
 
-              <h3 className=" text-center text-foreground text-lg sm:text-xl lg:text-2xl font-bold">
+              {/* Game title */}
+              <h3 className="text-center text-foreground text-lg sm:text-xl lg:text-2xl font-bold">
                 {g.title}
               </h3>
 
               {/* Optional: CTA per card */}
               {/*<Button className="mt-3 w-full text-lg cursor-pointer">
-                Play
-              </Button>*/}
+            Play
+          </Button>*/}
             </article>
           ))}
         </div>
-      </div>
-    </section>
+      </div >
+    </section >
   );
 };
 

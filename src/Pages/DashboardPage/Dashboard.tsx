@@ -3,8 +3,7 @@ import {
   SidebarInset,
 } from "@/components/ui/sidebar"
 
-
-
+// DashboardHome: Main dashboard page component
 export default function DashboardHome() {
   return (
     <SidebarInset className="rounded-md">

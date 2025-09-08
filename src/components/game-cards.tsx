@@ -1,3 +1,4 @@
+// GameCards: Displays game card with countdown and admin controls
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
@@ -6,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import StacksplaysWordsearch from "/public/StacksplaysWordsearch.png";
 import { useAuth } from "@/contexts/AuthContext";
 
+// Type for backend game response
 type GameResponse = {
   id: string;
   opensAt: number;
@@ -13,9 +15,11 @@ type GameResponse = {
   timeLeftMs: number;
 };
 
+// API and admin key from environment variables
 const API = import.meta.env.VITE_API_URL as string;
 const ADMIN_KEY = import.meta.env.VITE_ADMIN_KEY as string;
 
+// Format seconds to D H M S string
 function formatDHMS(totalSeconds: number) {
   const d = Math.floor(totalSeconds / 86400);
   const h = Math.floor((totalSeconds % 86400) / 3600);
@@ -24,20 +28,25 @@ function formatDHMS(totalSeconds: number) {
   return `${d}D ${h}h ${m}m ${s} s`;
 }
 
+// Main game card component
 export function GameCards() {
   const navigate = useNavigate();
   const user = useAuth();
+  console.log('GameCards user:', user);
 
+  // State for countdown and loading
   const [secondsLeft, setSecondsLeft] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(true);
   const tickRef = useRef<number | null>(null);
 
   // fetch game state from backend
+  // Fetch game state from backend
   const fetchGame = async () => {
     setLoading(true);
     try {
       const res = await fetch(`${API}/api/games/word-search`);
       const data: GameResponse = await res.json();
+      console.log('GameResponse:', data);
       setSecondsLeft(Math.max(0, Math.floor(data.timeLeftMs / 1000)));
     } catch (e) {
       console.error("Failed to fetch game state", e);
@@ -47,10 +56,12 @@ export function GameCards() {
   };
 
   // initial load
+  // Initial load: fetch game state
   useEffect(() => {
     fetchGame();
   }, []);
 
+  // Game is open only when countdown hits zero
   // Game is open only when countdown hits zero
   const isOpen = secondsLeft === 0;
   const headerLabel = useMemo(() => (!isOpen ? "Opens in:" : ""), [isOpen]);
@@ -144,9 +155,14 @@ export function GameCards() {
 
           {/* Admin controls (dev only; move behind real auth later) */}
           {user?.role === "admin" && (
-            <Button variant="secondary" size="sm" className="mt-2" onClick={resetOnServer}>
-              Reset Timer (Admin)
-            </Button>
+            <>
+              <div style={{ color: 'red', fontSize: '0.9em' }}>
+                (Admin detected: {user?.bns || "No address"})
+              </div>
+              <Button variant="secondary" size="sm" className="mt-2" onClick={resetOnServer}>
+                Reset Timer (Admin)
+              </Button>
+            </>
           )}
         </CardFooter>
       </Card>

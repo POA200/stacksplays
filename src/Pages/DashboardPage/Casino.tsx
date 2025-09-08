@@ -1,3 +1,13 @@
+import {
+  SidebarInset,
+} from "@/components/ui/sidebar"
+
 export default function Casino() {
-  return <div className="p-4">Casino Coming Soon</div>;
+  return (
+    <SidebarInset className="rounded-md">
+      <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
+        <p>casino coming soon</p>
+      </div>
+    </SidebarInset>
+  );
 }

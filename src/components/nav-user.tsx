@@ -1,3 +1,4 @@
+// NavUser: Sidebar user menu with avatar, address, and dropdown actions
 import {
   IconDotsVertical,
   IconUserCircle,
@@ -26,6 +27,7 @@ import {
 import { NavLink } from "react-router-dom"
 import Button from "./WalletButton";
 
+// Renders sidebar user info and dropdown menu for user actions
 export function NavUser({
   user,
 }: {
@@ -35,9 +37,11 @@ export function NavUser({
     avatar: string
   }
 }) {
+  // Detect if sidebar is in mobile mode
   const { isMobile } = useSidebar()
 
   return (
+    // Sidebar menu for user info and actions
     <SidebarMenu>
       <SidebarMenuItem>
         <DropdownMenu>
@@ -46,10 +50,12 @@ export function NavUser({
               size="lg"
               className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
             >
+              {/* User avatar and fallback */}
               <Avatar className="h-8 w-8 rounded-lg grayscale">
                 <AvatarImage src={user.avatar} alt={user.bns} />
                 <AvatarFallback className="rounded-lg">SP</AvatarFallback>
               </Avatar>
+              {/* User BNS and address display */}
               <div className="grid flex-1 text-left text-sm leading-tight">
                 <span className="truncate font-medium">{user.bns}</span>
                 <span className="text-muted-foreground truncate text-xs">

@@ -2,12 +2,14 @@ import StacksplaysPunk from "/public/StacksplaysPunk.png";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
+// MintNft: NFT minting component with quantity control
 export const MintNft = () => {
 
+  // State for NFT quantity and max limit
   const [quantity, setQuantity] = useState(1); // To manage NFT quantity
   const maxQuantity = 24;
 
-  // Increment and Decrement functions
+  // Increment and Decrement functions for quantity
   const increment = () => {
     if (quantity < maxQuantity) {
       setQuantity(quantity + 1);
@@ -39,7 +41,7 @@ export const MintNft = () => {
           </div>
           {/* Mint NFT Button and Quantity Section */}
           <div className="flex flex-col items-center gap-4">
-            {/* Quantity Control */}
+            {/* Quantity Control: increment/decrement buttons */}
             <div className="flex items-center justify-between w-full">
               <Button
                 className="p-8 text-2xl font-bold cursor-pointer rounded-md" variant={"outline"} size={"lg"}

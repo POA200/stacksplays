@@ -1,4 +1,5 @@
 "use client"
+// chart-area-interactive: Interactive area chart component for dashboard analytics
 
 import * as React from "react"
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
@@ -30,8 +31,10 @@ import {
   ToggleGroupItem,
 } from "@/components/ui/toggle-group"
 
+// Description for chart component
 export const description = "An interactive area chart"
 
+// Sample chart data for demonstration
 const chartData = [
   { date: "2024-04-01", desktop: 222, mobile: 150 },
   { date: "2024-04-02", desktop: 97, mobile: 180 },
