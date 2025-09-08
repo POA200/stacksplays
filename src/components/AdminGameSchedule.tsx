@@ -163,9 +163,9 @@ export default function AdminGameSchedule() {
   }
 
   return (
-    <Card className="max-w-2xl mx-auto mt-8 p-4 space-y-4">
+    <Card className="max-w-2xl mx-auto mt-24 p-4 space-y-4">
       <CardHeader className="flex items-center justify-between">
-        <div className="text-xl font-semibold">Game Scheduler — {gameId}</div>
+        <div className="text-xl font-semibold">Game Scheduler - {gameId}</div>
         <Badge variant={isOpen ? "default" : "secondary"}>
           {isOpen ? "open" : "closed"}
         </Badge>
@@ -225,12 +225,11 @@ export default function AdminGameSchedule() {
         <Button variant="ghost" onClick={fetchGame} disabled={loading}>
           Refresh
         </Button>
-
-        {/* Back Button */}
-        <Button variant="outline" onClick={handleBack} className="mt-2">
-          Back
-        </Button>
       </CardFooter>
+      {/* Back Button */}
+      <Button variant="outline" onClick={handleBack} className="mt-2">
+        Back
+      </Button>
     </Card>
   );
 }

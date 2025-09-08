@@ -2,8 +2,26 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardDescription, CardFooter, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+// Simple modal component for instructions
+function HowToPlayModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+  if (!open) return null;
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+      <div className="bg-background/50 backdrop-blur-50 rounded-2xl border-2 border-primary/40 shadow-lg p-6 max-w-md w-full">
+        <h2 className="text-xl font-bold mb-2">How to Play: Word Search</h2>
+        <ul className="list-disc pl-5 mb-4 text-sm">
+          <li>Find all the hidden words in the grid as quickly as possible.</li>
+          <li>Click and drag to highlight words horizontally, vertically, or diagonally.</li>
+          <li>Each found word will be marked off the list.</li>
+          <li>Complete the puzzle before time runs out!</li>
+        </ul>
+        <Button variant="default" onClick={onClose} className="cursor-pointer w-full">Close</Button>
+      </div>
+    </div>
+  );
+}
+import { Card, CardDescription, CardFooter, CardHeader } from "@/components/ui/card";
 import StacksplaysWordsearch from "/public/StacksplaysWordsearch.png";
 import { useAuth } from "@/contexts/AuthContext";
 
@@ -38,6 +56,8 @@ export function GameCards() {
   const [secondsLeft, setSecondsLeft] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(true);
   const tickRef = useRef<number | null>(null);
+  // State for modal visibility
+  const [showHowToPlay, setShowHowToPlay] = useState(false);
 
   // fetch game state from backend
   // Fetch game state from backend
@@ -110,8 +130,14 @@ export function GameCards() {
   };
 
   return (
-    <div className="grid grid-cols-1 gap-4 px-4 lg:px-6 @xl/main:grid-cols-2 @5xl/main:grid-cols-4">
+    <div className="grid grid-cols-1 gap-2 px-4 lg:px-6 @xl/main:grid-cols-2 @5xl/main:grid-cols-4">
       <Card className="@container/card p-4">
+        {/* How to Play badge triggers modal */}
+        <div className="flex justify-end mr-8">
+          <Badge variant={isOpen ? "default" : "secondary"}>
+            {isOpen ? "open" : "closed"}
+          </Badge>
+        </div>
         <CardHeader>
           <div className="flex justify-between w-full">
             <div className="flex items-center gap-2 text-sm">
@@ -124,8 +150,12 @@ export function GameCards() {
                 </>
               )}
             </div>
-            <Badge variant={isOpen ? "default" : "secondary"}>
-              {isOpen ? "open" : "closed"}
+            <Badge
+              variant="outline"
+              className="cursor-pointer hover:bg-primary/10"
+              onClick={() => setShowHowToPlay(true)}
+            >
+              How to Play
             </Badge>
           </div>
         </CardHeader>
@@ -165,6 +195,8 @@ export function GameCards() {
             </>
           )}
         </CardFooter>
+        {/* Modal for How to Play instructions */}
+        <HowToPlayModal open={showHowToPlay} onClose={() => setShowHowToPlay(false)} />
       </Card>
     </div>
   );

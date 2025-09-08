@@ -45,8 +45,9 @@ const WalletButton: React.FC = () => {
   };
 
   const disconnectWallet = () => {
-    // Disconnect wallet and clear state
+    // Disconnect wallet and clear state and localStorage
     disconnect();
+    window.localStorage.removeItem("stxUserSession");
     setIsAuthenticated(false);
     setUserAddress(null);
   };
