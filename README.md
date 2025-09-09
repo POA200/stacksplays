@@ -1,69 +1,110 @@
-# React + TypeScript + Vite
+# 🎮 StacksPlays Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+StacksPlays is a *decentralized gaming dApp* built on the *Stacks blockchain*.  
+This frontend (React + TypeScript + Tailwind CSS) provides the user interface for playing games, managing NFTs, and interacting with the backend API.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- *Landing Page* – Introduction to StacksPlays with navigation to Minting or App.  
+- *Dashboard Layout* – Responsive sidebar navigation with theme toggle, profile dropdown, and modular pages.  
+- *Casino & Mini-Games* – Interactive game cards with timers, states (open/closed), and Play Now functionality.  
+- *NFT Minting Page* – Connect wallet, mint NFTs, and showcase owned assets.  
+- *Leaderboard Page* – Dynamic leaderboard with filters (daily/weekly/season), player ranks, and podium view.  
+- *Admin Tools* – Secure admin dashboard with game scheduling/reset functionality.  
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠 Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- *Framework:* React + Vite + TypeScript  
+- *Styling:* Tailwind CSS + shadcn/ui + Radix Primitives  
+- *Icons:* Tabler Icons  
+- *State & Context:* React Context API (AuthContext for roles)  
+- *Routing:* React Router v6  
+- *Blockchain Integration:* Stacks Wallet / Leather Wallet (planned)  
+- *Backend Integration:* REST API (Node.js/Express)  
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📂 Project Structure
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+frontend/ ├── public/                # Static assets (logos, images, icons) ├── src/ │   ├── components/        # Reusable UI components │   ├── contexts/          # AuthContext, ThemeProvider │   ├── Pages/             # Main pages (Landing, Minting, Dashboard, etc.) │   │   └── DashboardPage/ # Dashboard subpages (Home, Casino, Leaderboard, etc.) │   ├── App.tsx            # Main app router │   └── main.tsx           # Entry point ├── .env                   # API URL + frontend config ├── package.json └── tailwind.config.js
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+## 🔑 Environment Variables
+
+Create a .env file in the root:
+
+```bash
+VITE_API_URL=http://localhost:4000    # Backend API URL
+
+
+---
+
+💻 Installation & Setup
+
+# Clone the repo
+git clone https://github.com/POA200/stacksplays.git
+cd stacksplays
+
+# Install dependencies
+npm install
+
+# Start dev server
+npm run dev
+
+The app will be available at http://localhost:5173.
+
+
+---
+
+🔌 API Integration
+
+This frontend consumes the StacksPlays Backend API:
+
+GET /api/games/:id → Fetch game status & countdown timer.
+
+POST /api/games/:id/reset → Reset game schedule (admin-only).
+
+GET /api/leaderboard?period=season → Fetch leaderboard data.
+
+POST /api/leaderboard/submit → Submit player score (protected/admin).
+
+
+Ensure the backend is running before launching the frontend.
+
+---
+
+🛡 Security & Best Practices
+
+Secrets (API keys, admin tokens) are stored in .env (excluded via .gitignore).
+
+Admin-only features (like scheduling games) require proper role from AuthContext.
+
+Game state (open/closed) is fetched from backend to ensure consistency across all clients.
+
+---
+
+📌 Roadmap
+
+[ ] Connect with Leather Wallet for blockchain login.
+
+[ ] On-chain leaderboard storage (Stacks smart contracts).
+
+[ ] Add multiplayer casino-style games.
+
+[ ] Live chat integration for community interaction.
+
+[ ] Expand NFT gallery with rarity filters.
+
+
+
+---
+
+👤 Author
+
+Developed by iPeter (StacksPlays Project).
+Frontend for Stacks blockchain GameFi dApp.

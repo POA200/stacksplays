@@ -8,15 +8,17 @@ function HowToPlayModal({ open, onClose }: { open: boolean; onClose: () => void 
   if (!open) return null;
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-      <div className="bg-background/50 backdrop-blur-50 rounded-2xl border-2 border-primary/40 shadow-lg p-6 max-w-md w-full">
-        <h2 className="text-xl font-bold mb-2">How to Play: Word Search</h2>
+      <div className="bg-background/80 backdrop-blur-50 rounded-2xl border-2 border-primary/40 shadow-lg p-6 max-w-md w-full">
+        <Badge className="rounded-full flex justify-center items-center font-medium mb-2 text-md">How to Play</Badge>
         <ul className="list-disc pl-5 mb-4 text-sm">
-          <li>Find all the hidden words in the grid as quickly as possible.</li>
-          <li>Click and drag to highlight words horizontally, vertically, or diagonally.</li>
-          <li>Each found word will be marked off the list.</li>
-          <li>Complete the puzzle before time runs out!</li>
+          <li>Start the Game: Click "Play Game" to begin.</li>
+          <li>Find the Words: Look for the hidden words in the letter grid.</li>
+          <li>Highlight Words: Click and drag to highlight each word.</li>
+          <li>Submit Your Answers: Once you've found all the words, click "Submit"</li>
+          <li>Win the Prize: Be one of the first 10 players to complete the game and win a share of the prize pool!</li>
+          <li>Play for Fun: After the first 10 winners, the game stays open for 24 hours to play for fun.</li>
         </ul>
-        <Button variant="default" onClick={onClose} className="cursor-pointer w-full">Close</Button>
+        <Button variant="default" onClick={onClose} className="cursor-pointer w-full">Ok, I Understand</Button>
       </div>
     </div>
   );
@@ -174,13 +176,13 @@ export function GameCards() {
           </div>
 
           <Button
-            className="w-full rounded-md text-2xl font-semibold p-6"
+            className="w-full rounded-md text-2xl font-semibold p-6 cursor-pointer"
             size="lg"
             onClick={handlePlayNow}
             disabled={!isOpen || loading}
             variant={isOpen ? "default" : "secondary"}
           >
-            {isOpen ? "Play Now" : "Game Closed"}
+            {isOpen ? "Play Game" : "Game Closed"}
           </Button>
 
           {/* Admin controls (dev only; move behind real auth later) */}
